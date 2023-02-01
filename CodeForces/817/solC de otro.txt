@@ -1,0 +1,33 @@
+void solve() {
+	// code here
+    unordered_map<string, vector<int> > map;
+    int n;
+    cin >> n;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < n; ++j) {
+            string t;
+            cin >> t;
+            map[t].push_back(i);
+        }
+    }
+    int Ans[3];
+    for (int i = 0; i < 3; ++i) {
+        Ans[i] = 0;
+    }
+    for (pair<string, vector<int> > element : map) {
+        if (element.second.size() > 2) {
+            continue;
+        }
+        if (element.second.size() == 2) {
+            Ans[element.second[0]]++;
+            Ans[element.second[1]]++;
+            continue;
+        }
+        Ans[element.second[0]] += 3;
+    }
+ 
+    for (int i = 0; i < 3; ++i) {
+        cout << Ans[i] << " ";
+    }
+    cout << endl;
+}
