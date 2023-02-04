@@ -1,0 +1,65 @@
+//El error era no modificar los inputs en un inicio sumando el valor de posicion del teleporter, despues de eso solo era hacer un sort y sumar los que se puedan
+
+
+#include <iostream>
+#include <bits/stdc++.h>
+
+using ll = long long;
+using ull = unsigned long long;
+using namespace std;
+
+#define all(container) begin(container),end(container)
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t; cin >> t;
+    while(t--){
+        
+        //Input
+        
+       int n,c; cin >> n; cin >> c;
+       
+       vector<int> arr; 
+       for(int i=0;i<n;i++)
+            {
+            ll input; cin >> input;
+            arr.push_back(input);
+            }
+        
+        //Solve
+        
+        int sum = 0;
+        int count = 0;
+        
+        for(int j=0;j<n && sum < c; j++){
+            
+            
+        int lowest = 10000000000; 
+        int low_it = -1;
+        
+        for(int i=0;i<n;i++){
+            if( arr[i] != -1)
+            {
+                if( (arr[i] + i + 1 < lowest) || (low_it == -1) ){
+                    low_it = i;
+                    lowest = arr[i] + i + 1;
+                }
+            }
+        }
+        
+        if( (sum + lowest) <= c){
+            count++;
+            sum += lowest;
+            arr[low_it] = -1; //used
+            }
+        else
+            break;
+            
+        }
+        
+        cout << count << "\n";
+    }
+}

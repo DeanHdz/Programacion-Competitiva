@@ -1,0 +1,66 @@
+//El error era no checar el string en reversa tambien, asi asegurabas la cadena de valor maximo
+
+
+#include <iostream>
+#include <bits/stdc++.h>
+
+using ll = long long;
+using ull = unsigned long long;
+using namespace std;
+
+#define all(container) begin(container),end(container)
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t; cin >> t;
+    while(t--){
+        
+        //Input
+        
+        int n; cin >> n;
+        string s; cin >> s;
+        
+        //Solve
+        
+        int highest=0;
+        
+        for(int j=0;j<n;j++){
+            
+            bool other = false;
+            string a="",b="";
+            set<char> s1,s2;
+            
+            for(int i=j;i<n;i++){
+            if( s1.contains(s[i]) || other)
+                {
+                other = true;
+                if( s2.contains(s[i]) )
+                    {
+                       i = n; //Terminar todo y calcular al final
+                    }
+                else{
+                    s2.insert(s[i]);
+                    b += s[i];
+                    }
+                
+                }       
+            else
+                {
+                    s1.insert(s[i]);
+                    a += s[i];
+                }
+                
+            }
+            
+            if(a.size() + b.size() > highest)
+                highest = a.size() + b.size();
+            
+        }
+        
+        cout << highest << "\n";
+    }
+}
+

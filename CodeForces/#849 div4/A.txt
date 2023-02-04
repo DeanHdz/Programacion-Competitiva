@@ -1,0 +1,38 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using ll = long long;
+using ull = unsigned long long;
+using namespace std;
+
+#define all(container) begin(container),end(container)
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t; cin >> t;
+    while(t--){
+        
+        //Input
+        
+        char c; cin >> c;
+        switch(c){
+            case 'c': cout << "YES"; break;
+            case 'o': cout << "YES"; break;
+            case 'd': cout << "YES"; break;
+            case 'e': cout << "YES"; break;
+            case 'f': cout << "YES"; break;
+            case 'r': cout << "YES"; break;
+            case 's': cout << "YES"; break;
+            default: cout << "NO";
+        }
+        
+        cout << "\n";
+        //Solve
+        
+        
+        
+    }
+}

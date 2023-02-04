@@ -1,0 +1,40 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using ll = long long;
+using ull = unsigned long long;
+using namespace std;
+
+#define all(container) begin(container),end(container)
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t; cin >> t;
+    while(t--){
+        
+        //Input
+        
+        int n; cin >> n;
+        string s; cin >> s;
+        
+        //Solve
+        
+        int li = 0, ri = n-1;
+
+        while(li < ri){
+            if( (s[li] == '0' && s[ri] == '1') || (s[li] == '1' && s[ri] == '0'))
+            {
+                li++;
+                ri--;
+            }
+            else
+                break;
+            if(li > ri)
+                break;
+        }
+       cout << n-(li*2) << "\n";
+    }
+}
